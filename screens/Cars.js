@@ -21,9 +21,9 @@ import CardStack, { Card } from 'react-native-card-stack-swiper';
 import { scale, verticalScale, } from 'react-native-size-matters';
 
 
-export default class FruitsScreen extends Component {
+export default class CarsScreen extends Component {
   static navigationOptions = {
-      title: '野菜',
+      title: '乗り物',
       headerStyle: {backgroundColor: 'skyblue',},
       headerTintColor: 'white',
     };
@@ -47,10 +47,10 @@ export default class FruitsScreen extends Component {
           <Card style={[styles.card, styles.card1]}>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.read}>
-                <Text style={styles.readText}>だいこん</Text>
+                <Text style={styles.readText}>ばす</Text>
               </View>
               <View style={styles.photoFlame}>
-                <Image source={require("../assets/images/Veges/Daikon.jpg")}/>
+                <Image source={require("../assets/images/Cars/Bus.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
                 <TouchableOpacity style={styles.cardButton} >
@@ -63,10 +63,10 @@ export default class FruitsScreen extends Component {
           <Card style={[styles.card, styles.card1]}>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.read}>
-                <Text style={styles.readText}>ほうれんそう</Text>
+                <Text style={styles.readText}>でんしゃ</Text>
               </View>
               <View style={styles.photoFlame}>
-                <Image source={require("../assets/images/Veges/Hourennsou.jpg")}/>
+              <Image source={require("../assets/images/Cars/Densya.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
                 <TouchableOpacity style={styles.cardButton} >
@@ -79,10 +79,10 @@ export default class FruitsScreen extends Component {
           <Card style={[styles.card, styles.card1]}>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.read}>
-                <Text style={styles.readText}>きゃべつ</Text>
+                <Text style={styles.readText}>じてんしゃ</Text>
               </View>
               <View style={styles.photoFlame}>
-                <Image source={require("../assets/images/Veges/Kyabetu.jpg")}/>
+                <Image source={require("../assets/images/Cars/Jitennsya.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
                 <TouchableOpacity style={styles.cardButton} >

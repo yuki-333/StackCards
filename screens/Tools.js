@@ -11,12 +11,22 @@ import {
   View,
   TouchableOpacity,
   Image,
+  Modal,
+  KeyboardAvoidingView,
+  Button,
+  AsyncStorage,
 } from 'react-native';
 
 import CardStack, { Card } from 'react-native-card-stack-swiper';
+import { scale, verticalScale, } from 'react-native-size-matters';
 
 
 export default class FruitsScreen extends Component {
+  static navigationOptions = {
+      title: '日用品',
+      headerStyle: {backgroundColor: 'skyblue',},
+      headerTintColor: 'white',
+    };
   render() {
     return (
       <View style={{flex:1}}>
@@ -32,13 +42,56 @@ export default class FruitsScreen extends Component {
 
           onSwiped={() => console.log('onSwiped')}
           onSwipedLeft={() => console.log('onSwipedLeft')}
+          loop={true}
         >
-          <Card style={[styles.card, styles.card1]}><Text style={styles.label}>A</Text></Card>
-          <Card style={[styles.card, styles.card2]} onSwipedLeft={() => alert('onSwipedLeft')}><Text style={styles.label}>B</Text></Card>
-          <Card style={[styles.card, styles.card1]}><Text style={styles.label}>C</Text></Card>
-          <Card style={[styles.card, styles.card2]}><Text style={styles.label}>D</Text></Card>
-          <Card style={[styles.card, styles.card1]}><Text style={styles.label}>E</Text></Card>
-
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.read}>
+                <Text style={styles.readText}>いす</Text>
+              </View>
+              <View style={styles.photoFlame}>
+                <Image source={require("../assets/images/Tools/Isu.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+         
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.read}>
+                <Text style={styles.readText}>とけい</Text>
+              </View>
+              <View style={styles.photoFlame}>
+              <Image source={require("../assets/images/Tools/Tokei.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+         
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.read}>
+                <Text style={styles.readText}>はぶらし</Text>
+              </View>
+              <View style={styles.photoFlame}>
+              <Image source={require("../assets/images/Tools/Haburasi.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+         
         </CardStack>
 
 
@@ -68,87 +121,134 @@ export default class FruitsScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    backgroundColor: '#f2f2f2',
-  },
-  content:{
-    flex: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  card:{
-    width: 320,
-    height: 470,
-    backgroundColor: '#FE474C',
-    borderRadius: 5,
-    shadowColor: 'rgba(0,0,0,0.5)',
-    shadowOffset: {
-      width: 0,
-      height: 1
+  base: {
+      flex: 1,
+      backgroundColor: 'white',
+      justifyContent: 'center',
+      alignItems: 'center',
     },
-    shadowOpacity:0.5,
+  content: {
+      flex: 6,
+      alignItems: 'center',
+      justifyContent: 'center',
   },
-  card1: {
-    backgroundColor: '#FE474C',
-  },
-  card2: {
-    backgroundColor: '#FEB12C',
-  },
-  label: {
-    lineHeight: 400,
-    textAlign: 'center',
-    fontSize: 55,
-    fontFamily: 'System',
-    color: '#ffffff',
-    backgroundColor: 'transparent',
-  },
-  footer:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
-  },
-  buttonContainer:{
-    width:220,
-    flexDirection:'row',
-    justifyContent: 'space-between',
-  },
-  button:{
-    shadowColor: 'rgba(0,0,0,0.3)',
-    shadowOffset: {
-      width: 0,
-      height: 1
+  cardBase: {
+      width: scale(320),
+      height: verticalScale(520),
+      padding: scale(5),
+      alignItems: 'center',
+      justifyContent: 'center',
+      overflow: 'hidden',
+      borderWidth: 5,
+      borderRadius: 10,
+      borderColor: 'lightskyblue',
     },
-    shadowOpacity:0.5,
-    backgroundColor:'#fff',
-    alignItems:'center',
-    justifyContent:'center',
-    zIndex: 0,
+    read: {
+      flexDirection: 'row',
+      flex: 1,
+      margin: 7,
+      width: scale(270),
+      backgroundColor: 'white',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    readText: {
+      fontSize: scale(30),
+    },
+    photoFlame: {
+      flex: 6,
+      backgroundColor: 'white',
+      width: scale(280),
+      justifyContent: 'center',
+      alignItems: 'center',
+      borderWidth: 5,
+      borderRadius: 10,
+      borderColor: 'white',
+      marginTop: 15,
+    },
+    cardButtonBase: {
+      flexDirection: 'row',
+      flex: 1,
+      width: scale(280),
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginTop: 10,
+      backgroundColor: 'skyblue'
+    },
+    cbbc0: {
+      backgroundColor: 'skyblue',
+    },
+    cbbc1: {
+      backgroundColor: 'skyblue',
+    },
+    cardButton: {
+      height: scale(35),
+      width: scale(40),
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'skyblue',
+      borderWidth: 2,
+      borderRadius: 30,
+      borderColor: 'white',
+      flexDirection: 'row',
+      
+    },
+    cardText: {
+      fontSize: scale(13),
+      color: 'white',
+    },
+
+   footer: {
+       flex: 1,
+       justifyContent: 'center',
+       alignItems: 'center',
+       backgroundColor: null,
+  },
+  buttonContainer: {
+      width: 220,
+      flexDirection: 'row',
+      justifyContent: 'center',
+  },
+  button: {
+      shadowColor: 'rgba(0,0,0,0.20)',
+      shadowOffset: {
+        width: 0,
+        height: 1
+      },
+      shadowOpacity:0.5,
+      backgroundColor: 'skyblue',
+      alignItems:'center',
+      justifyContent:'center',
+      zIndex: 0,
   },
   orange:{
-    width:55,
-    height:55,
-    borderWidth:6,
-    borderColor:'rgb(246,190,66)',
-    borderWidth:4,
-    borderRadius:55,
-    marginTop:-15
-  },
-  green:{
-    width:75,
-    height:75,
-    backgroundColor:'#fff',
-    borderRadius:75,
-    borderWidth:6,
-    borderColor:'#01df8a',
-  },
-  red:{
-    width:75,
-    height:75,
-    backgroundColor:'#fff',
-    borderRadius:75,
-    borderWidth:6,
-    borderColor:'#fd267d',
-  }
+      width:75,
+      height:55,
+      borderWidth:6,
+      borderColor:'lightskyblue',
+      borderWidth:4,
+      borderRadius: 30,
+      marginTop: 0,
+    },
+    green:{
+      width:75,
+      height:75,
+      backgroundColor:'#fff',
+      borderRadius:75,
+      borderWidth:6,
+      borderColor:'lightskyblue',
+    },
+    red:{
+      width:75,
+      height:75,
+      backgroundColor:'#fff',
+      borderRadius:75,
+      borderWidth:6,
+      borderColor:'lightskyblue',
+    },
+    footerText: {
+      fontSize: scale(14),
+      color: 'black',
+    },
 });
+

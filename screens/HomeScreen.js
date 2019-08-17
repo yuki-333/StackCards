@@ -18,6 +18,7 @@ import FruitsScreen from './Fruits';
 import VegeScreen from './Veges'
 import AisatuScreen from './Greetings'
 import ToolScreen from './Tools';
+import CarsScreen from './Cars'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
@@ -53,8 +54,8 @@ class HomeScreen extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={this.doAction2}>
-          <Text style={styles.buttonText} >あいさつ</Text>
+          <TouchableOpacity style={styles.button} onPress={this.doAction4}>
+          <Text style={styles.buttonText} >乗り物</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={this.doAction3}>
           <Text style={styles.buttonText} >日用品</Text>
@@ -82,7 +83,7 @@ class HomeScreen extends Component {
     this.props.navigation.navigate('Tool')
   }
   doAction4 = () => {
-    this.props.navigation.navigate('null')
+    this.props.navigation.navigate('Cars')
   }
 }
 
@@ -93,6 +94,7 @@ export default createStackNavigator(
     Vege: { screen: VegeScreen },
     Aisatu: { screen: AisatuScreen },
     Tool: { screen: ToolScreen},
+    Cars: {screen: CarsScreen},
   },
   {
     initialRouteName: 'Home',
