@@ -27,6 +27,12 @@ export default class FruitsScreen extends Component {
       headerStyle: {backgroundColor: 'skyblue',},
       headerTintColor: 'white',
     };
+    constructor(props) {
+      super(props);
+      this.state = {
+      
+      }
+    }
   render() {
     return (
       <View style={{flex:1}}>

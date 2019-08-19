@@ -27,6 +27,17 @@ export default class FruitsScreen extends Component {
       headerStyle: {backgroundColor: 'skyblue',},
       headerTintColor: 'white',
     };
+  
+    constructor(props) {
+      super(props);
+      this.state = {
+        reads0: '',
+      }
+    }
+
+ 
+
+
   render() {
     return (
       <View style={{flex:1}}>
@@ -47,13 +58,13 @@ export default class FruitsScreen extends Component {
           <Card style={[styles.card, styles.card1]}>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.read}>
-                <Text style={styles.readText}>りんご</Text>
+                <Text style={styles.readText}>{this.state.reads0}</Text>
               </View>
               <View style={styles.photoFlame}>
                 <Image source={require("../assets/images/Fruits/Ringo'.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} >
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction} >
                   <Text style={styles.cardText} >読み</Text>
                 </TouchableOpacity>
               </View>
@@ -118,6 +129,10 @@ export default class FruitsScreen extends Component {
       </View>
     );
   }
+}
+
+doAction = () => {
+  this.setState({reads0: 'Apple'})
 }
 
 const styles = StyleSheet.create({
@@ -251,4 +266,3 @@ const styles = StyleSheet.create({
       color: 'black',
     },
 });
-
