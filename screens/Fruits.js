@@ -32,9 +32,87 @@ export default class FruitsScreen extends Component {
       super(props);
       this.state = {
         reads0: '',
+        reads1: '',
+        reads2: '',
+        reads3: '',
+        reads4: '',
+        reads5: '',
+        reads6: '',
+        reads7: '',
+        reads8: '',
+        reads9: '',
       }
     }
 
+    doAction0 = () => {
+      this.setState({reads0: 'りんご'})
+    }
+    doDelete0 = () => {
+      this.setState({reads0: ''})
+    }
+
+    doAction1 = () => {
+      this.setState({reads1: 'かき'})
+    }
+    doDelete1 = () => {
+      this.setState({reads1: ''})
+    }
+
+    doAction2 = () => {
+      this.setState({reads2: 'みかん'})
+    }
+    doDelete2 = () => {
+      this.setState({reads2: ''})
+    }
+
+    doAction3 = () => {
+      this.setState({reads3: 'さくらんぼ'})
+    }
+    doDelete3 = () => {
+      this.setState({reads3: ''})
+    }
+
+    doAction4 = () => {
+      this.setState({reads4: 'もも'})
+    }
+    doDelete4 = () => {
+      this.setState({reads4: ''})
+    }
+
+    doAction5 = () => {
+      this.setState({reads5: ' ばなな'})
+    }
+    doDelete5 = () => {
+      this.setState({reads5: ''})
+    }
+
+    doAction6 = () => {
+      this.setState({reads6: 'なし'})
+    }
+    doDelete6 = () => {
+      this.setState({reads6: ''})
+    }
+
+    doAction7 = () => {
+      this.setState({reads7: 'いちご'})
+    }
+    doDelete7 = () => {
+      this.setState({reads7: ''})
+    }
+
+    doAction8 = () => {
+      this.setState({reads8: 'れもん'})
+    }
+    doDelete8 = () => {
+      this.setState({reads8: ''})
+    }
+
+    doAction9 = () => {
+      this.setState({reads9: 'ぱいなっぷる'})
+    }
+    doDelete9 = () => {
+      this.setState({reads9: ''})
+    }
  
 
 
@@ -55,6 +133,7 @@ export default class FruitsScreen extends Component {
           onSwipedLeft={() => console.log('onSwipedLeft')}
           loop={true}
         >
+
           <Card style={[styles.card, styles.card1]}>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.read}>
@@ -64,44 +143,200 @@ export default class FruitsScreen extends Component {
                 <Image source={require("../assets/images/Fruits/Ringo'.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} onPress={this.doAction} >
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction0} >
                   <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete0} >
+                  <Text style={styles.cardText} >隠す</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </Card>
-         
+
           <Card style={[styles.card, styles.card1]}>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.read}>
-                <Text style={styles.readText}>かき</Text>
+                <Text style={styles.readText}>{this.state.reads1}</Text>
               </View>
               <View style={styles.photoFlame}>
                 <Image source={require("../assets/images/Fruits/Kaki.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} >
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction1} >
                   <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete1} >
+                  <Text style={styles.cardText} >隠す</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </Card>
-         
+
           <Card style={[styles.card, styles.card1]}>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.read}>
-                <Text style={styles.readText}>みかん</Text>
+                <Text style={styles.readText}>{this.state.reads2}</Text>
               </View>
               <View style={styles.photoFlame}>
                 <Image source={require("../assets/images/Fruits/Mikan.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} >
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction2} >
                   <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete2} >
+                  <Text style={styles.cardText} >隠す</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </Card>
+
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.read}>
+                <Text style={styles.readText}>{this.state.reads3}</Text>
+              </View>
+              <View style={styles.photoFlame}>
+                <Image source={require("../assets/images/Fruits/Sakuranbo.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction3} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete3} >
+                  <Text style={styles.cardText} >隠す</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.read}>
+                <Text style={styles.readText}>{this.state.reads4}</Text>
+              </View>
+              <View style={styles.photoFlame}>
+                <Image source={require("../assets/images/Fruits/Momo.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction4} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete4} >
+                  <Text style={styles.cardText} >隠す</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.read}>
+                <Text style={styles.readText}>{this.state.reads5}</Text>
+              </View>
+              <View style={styles.photoFlame}>
+                <Image source={require("../assets/images/Fruits/Banana.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction5} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete5} >
+                  <Text style={styles.cardText} >隠す</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.read}>
+                <Text style={styles.readText}>{this.state.reads6}</Text>
+              </View>
+              <View style={styles.photoFlame}>
+                <Image source={require("../assets/images/Fruits/Nasi.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction6} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete6} >
+                  <Text style={styles.cardText} >隠す</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.read}>
+                <Text style={styles.readText}>{this.state.reads7}</Text>
+              </View>
+              <View style={styles.photoFlame}>
+                <Image source={require("../assets/images/Fruits/Itigo.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction7} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete7} >
+                  <Text style={styles.cardText} >隠す</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.read}>
+                <Text style={styles.readText}>{this.state.reads8}</Text>
+              </View>
+              <View style={styles.photoFlame}>
+                <Image source={require("../assets/images/Fruits/Lemon.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction8} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete8} >
+                  <Text style={styles.cardText} >隠す</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.read}>
+                <Text style={styles.readText}>{this.state.reads9}</Text>
+              </View>
+              <View style={styles.photoFlame}>
+                <Image source={require("../assets/images/Fruits/Pineapple.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction9} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete9} >
+                  <Text style={styles.cardText} >隠す</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+
+
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.photoFlame}>
+                <Text style={styles.lastCard}>絵CARD</Text>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <Text>2019</Text>
+              </View>
+            </View>
+          </Card>
+         
+          
          
         </CardStack>
 
@@ -131,9 +366,6 @@ export default class FruitsScreen extends Component {
   }
 }
 
-doAction = () => {
-  this.setState({reads0: 'Apple'})
-}
 
 const styles = StyleSheet.create({
   base: {
@@ -186,7 +418,7 @@ const styles = StyleSheet.create({
       flex: 1,
       width: scale(280),
       alignItems: 'center',
-      justifyContent: 'space-between',
+      justifyContent: 'space-around',
       marginTop: 10,
       backgroundColor: 'skyblue'
     },
@@ -198,7 +430,7 @@ const styles = StyleSheet.create({
     },
     cardButton: {
       height: scale(35),
-      width: scale(40),
+      width: scale(90),
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: 'skyblue',
@@ -209,7 +441,7 @@ const styles = StyleSheet.create({
       
     },
     cardText: {
-      fontSize: scale(13),
+      fontSize: scale(20),
       color: 'white',
     },
 
@@ -237,7 +469,7 @@ const styles = StyleSheet.create({
       zIndex: 0,
   },
   orange:{
-      width:75,
+      width:55,
       height:55,
       borderWidth:6,
       borderColor:'lightskyblue',
@@ -265,4 +497,8 @@ const styles = StyleSheet.create({
       fontSize: scale(14),
       color: 'black',
     },
+    lastCard: {
+      fontSize: scale(50),
+      color: 'skyblue',
+    }
 });
