@@ -32,10 +32,17 @@ export default class FruitsScreen extends Component {
       super(props);
       this.state = {
         reads0: '',
+        modal: false,
       }
     }
 
- 
+    doModal = () => {
+      this.setState({modal: true})
+    }
+    doModalAction = () => {
+      this.setState({modal:false,});
+    }
+  
 
 
   render() {
@@ -45,17 +52,24 @@ export default class FruitsScreen extends Component {
 
         <CardStack
           style={styles.content}
-
-          renderNoMoreCards={() => <Text style={{fontWeight:'700', fontSize:18, color:'gray'}}>No more cards :(</Text>}
           ref={swiper => {
             this.swiper = swiper
           }}
-
           onSwiped={() => console.log('onSwiped')}
           onSwipedLeft={() => console.log('onSwipedLeft')}
           loop={true}
         >
           <Card style={[styles.card, styles.card1]}>
+          <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={this.closeModal}>
+            <View style={styles.modalBase}>
+              <View style={styles.modalPanel}>
+                <Text style={styles.modalContent}>りんご</Text>
+                  <TouchableOpacity style={styles.modalButton} onPress={this.doModalAction} >
+                    <Text style={styles.cardText} >OK</Text>
+                  </TouchableOpacity>
+              </View>
+            </View>
+          </Modal>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.read}>
                 <Text style={styles.readText}>{this.state.reads0}</Text>
@@ -64,8 +78,14 @@ export default class FruitsScreen extends Component {
                 <Image source={require("../assets/images/Fruits/Ringo'.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} onPress={this.doAction} >
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction0} >
                   <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete0} >
+                  <Text style={styles.cardText} >隠す</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doModal} >
+                  <Text style={styles.cardText} >Modal</Text>
                 </TouchableOpacity>
               </View>
             </View>
@@ -131,9 +151,6 @@ export default class FruitsScreen extends Component {
   }
 }
 
-doAction = () => {
-  this.setState({reads0: 'Apple'})
-}
 
 const styles = StyleSheet.create({
   base: {
@@ -264,5 +281,35 @@ const styles = StyleSheet.create({
     footerText: {
       fontSize: scale(14),
       color: 'black',
+    },
+    modalBase: {
+      flex:1, 
+      justifyContent:'center',
+      backgroundColor:'#00000099', 
+    },
+    modalPanel: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 10,
+      margin:50,
+      backgroundColor:'white',
+      borderRadius: 30,
+      borderWidth:2,
+      borderColor:'black',
+    },
+    modalContent: {
+      padding:10,
+      fontSize: scale(40),
+    },
+    modalButton: {
+      height: 50,
+      width: 150,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'lightskyblue',
+      borderWidth: 2,
+      borderRadius: 30,
+      borderColor: 'white',
+      fontSize: scale(20),
     },
 });
