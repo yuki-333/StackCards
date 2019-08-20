@@ -39,7 +39,7 @@ export default class FruitsScreen extends Component {
     doModal = () => {
       this.setState({modal: true})
     }
-    doModalAction = () => {
+    doModalDelete = () => {
       this.setState({modal:false,});
     }
   
@@ -59,69 +59,55 @@ export default class FruitsScreen extends Component {
           onSwipedLeft={() => console.log('onSwipedLeft')}
           loop={true}
         >
+
           <Card style={[styles.card, styles.card1]}>
-          <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={this.closeModal}>
+          <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={()=>{}}>
             <View style={styles.modalBase}>
               <View style={styles.modalPanel}>
                 <Text style={styles.modalContent}>りんご</Text>
-                  <TouchableOpacity style={styles.modalButton} onPress={this.doModalAction} >
+                  <TouchableOpacity style={styles.modalButton} onPress={this.doModalDelete} >
                     <Text style={styles.cardText} >OK</Text>
                   </TouchableOpacity>
               </View>
             </View>
           </Modal>
             <View style={[styles.cardBase, styles.cbbc0]}>
-              <View style={styles.read}>
-                <Text style={styles.readText}>{this.state.reads0}</Text>
-              </View>
               <View style={styles.photoFlame}>
                 <Image source={require("../assets/images/Fruits/Ringo'.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} onPress={this.doAction0} >
-                  <Text style={styles.cardText} >読み</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.cardButton} onPress={this.doDelete0} >
-                  <Text style={styles.cardText} >隠す</Text>
-                </TouchableOpacity>
                 <TouchableOpacity style={styles.cardButton} onPress={this.doModal} >
-                  <Text style={styles.cardText} >Modal</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Card>
-         
-          <Card style={[styles.card, styles.card1]}>
-            <View style={[styles.cardBase, styles.cbbc0]}>
-              <View style={styles.read}>
-                <Text style={styles.readText}>かき</Text>
-              </View>
-              <View style={styles.photoFlame}>
-                <Image source={require("../assets/images/Fruits/Kaki.jpg")}/>
-              </View>
-              <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} >
                   <Text style={styles.cardText} >読み</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </Card>
-         
+          
           <Card style={[styles.card, styles.card1]}>
-            <View style={[styles.cardBase, styles.cbbc0]}>
-              <View style={styles.read}>
-                <Text style={styles.readText}>みかん</Text>
+          <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={()=>{}}>
+            <View style={styles.modalBase}>
+              <View style={styles.modalPanel}>
+                <Text style={styles.modalContent}>みかん</Text>
+                  <TouchableOpacity style={styles.modalButton} onPress={this.doModalDelete} >
+                    <Text style={styles.cardText} >OK</Text>
+                  </TouchableOpacity>
               </View>
+            </View>
+          </Modal>
+            <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.photoFlame}>
                 <Image source={require("../assets/images/Fruits/Mikan.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} >
+                <TouchableOpacity style={styles.cardButton} onPress={this.doModal} >
                   <Text style={styles.cardText} >読み</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </Card>
+          
+         
+          
          
         </CardStack>
 
@@ -203,7 +189,8 @@ const styles = StyleSheet.create({
       flex: 1,
       width: scale(280),
       alignItems: 'center',
-      justifyContent: 'space-between',
+      justifyContent: 'center',
+      //justifyContent: 'space-between'から'center'に変更している
       marginTop: 10,
       backgroundColor: 'skyblue'
     },
@@ -214,8 +201,8 @@ const styles = StyleSheet.create({
       backgroundColor: 'skyblue',
     },
     cardButton: {
-      height: scale(35),
-      width: scale(40),
+      height: scale(45),
+      width: scale(150),
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: 'skyblue',
@@ -226,7 +213,7 @@ const styles = StyleSheet.create({
       
     },
     cardText: {
-      fontSize: scale(13),
+      fontSize: scale(20),
       color: 'white',
     },
 
@@ -254,7 +241,7 @@ const styles = StyleSheet.create({
       zIndex: 0,
   },
   orange:{
-      width:75,
+      width:55,
       height:55,
       borderWidth:6,
       borderColor:'lightskyblue',

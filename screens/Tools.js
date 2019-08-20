@@ -23,16 +23,28 @@ import { scale, verticalScale, } from 'react-native-size-matters';
 
 export default class FruitsScreen extends Component {
   static navigationOptions = {
-      title: '日用品',
+      title: '果物',
       headerStyle: {backgroundColor: 'skyblue',},
       headerTintColor: 'white',
     };
+  
     constructor(props) {
       super(props);
       this.state = {
-      
+        reads0: '',
+        modal: false,
       }
     }
+
+    doModal = () => {
+      this.setState({modal: true})
+    }
+    doModalDelete = () => {
+      this.setState({modal:false,});
+    }
+  
+
+
   render() {
     return (
       <View style={{flex:1}}>
@@ -40,63 +52,62 @@ export default class FruitsScreen extends Component {
 
         <CardStack
           style={styles.content}
-
-          renderNoMoreCards={() => <Text style={{fontWeight:'700', fontSize:18, color:'gray'}}>No more cards :(</Text>}
           ref={swiper => {
             this.swiper = swiper
           }}
-
           onSwiped={() => console.log('onSwiped')}
           onSwipedLeft={() => console.log('onSwipedLeft')}
           loop={true}
         >
+
           <Card style={[styles.card, styles.card1]}>
-            <View style={[styles.cardBase, styles.cbbc0]}>
-              <View style={styles.read}>
-                <Text style={styles.readText}>いす</Text>
+          <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={()=>{}}>
+            <View style={styles.modalBase}>
+              <View style={styles.modalPanel}>
+                <Text style={styles.modalContent}>りんご</Text>
+                  <TouchableOpacity style={styles.modalButton} onPress={this.doModalDelete} >
+                    <Text style={styles.cardText} >OK</Text>
+                  </TouchableOpacity>
               </View>
+            </View>
+          </Modal>
+            <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.photoFlame}>
-                <Image source={require("../assets/images/Tools/Isu.jpg")}/>
+                <Image source={require("../assets/images/Fruits/Ringo'.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} >
+                <TouchableOpacity style={styles.cardButton} onPress={this.doModal} >
                   <Text style={styles.cardText} >読み</Text>
                 </TouchableOpacity>
               </View>
             </View>
           </Card>
+          
+          <Card style={[styles.card, styles.card1]}>
+          <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={()=>{}}>
+            <View style={styles.modalBase}>
+              <View style={styles.modalPanel}>
+                <Text style={styles.modalContent}>りんご</Text>
+                  <TouchableOpacity style={styles.modalButton} onPress={this.doModalDelete} >
+                    <Text style={styles.cardText} >OK</Text>
+                  </TouchableOpacity>
+              </View>
+            </View>
+          </Modal>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.photoFlame}>
+                <Image source={require("../assets/images/Fruits/Ringo'.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doModal} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+          
          
-          <Card style={[styles.card, styles.card1]}>
-            <View style={[styles.cardBase, styles.cbbc0]}>
-              <View style={styles.read}>
-                <Text style={styles.readText}>とけい</Text>
-              </View>
-              <View style={styles.photoFlame}>
-              <Image source={require("../assets/images/Tools/Tokei.jpg")}/>
-              </View>
-              <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} >
-                  <Text style={styles.cardText} >読み</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Card>
-         
-          <Card style={[styles.card, styles.card1]}>
-            <View style={[styles.cardBase, styles.cbbc0]}>
-              <View style={styles.read}>
-                <Text style={styles.readText}>はぶらし</Text>
-              </View>
-              <View style={styles.photoFlame}>
-              <Image source={require("../assets/images/Tools/Haburasi.jpg")}/>
-              </View>
-              <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} >
-                  <Text style={styles.cardText} >読み</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Card>
+          
          
         </CardStack>
 
@@ -125,6 +136,7 @@ export default class FruitsScreen extends Component {
     );
   }
 }
+
 
 const styles = StyleSheet.create({
   base: {
@@ -177,7 +189,8 @@ const styles = StyleSheet.create({
       flex: 1,
       width: scale(280),
       alignItems: 'center',
-      justifyContent: 'space-between',
+      justifyContent: 'center',
+      //justifyContent: 'space-between'から'center'に変更している
       marginTop: 10,
       backgroundColor: 'skyblue'
     },
@@ -188,8 +201,8 @@ const styles = StyleSheet.create({
       backgroundColor: 'skyblue',
     },
     cardButton: {
-      height: scale(35),
-      width: scale(40),
+      height: scale(45),
+      width: scale(150),
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: 'skyblue',
@@ -200,7 +213,7 @@ const styles = StyleSheet.create({
       
     },
     cardText: {
-      fontSize: scale(13),
+      fontSize: scale(20),
       color: 'white',
     },
 
@@ -228,7 +241,7 @@ const styles = StyleSheet.create({
       zIndex: 0,
   },
   orange:{
-      width:75,
+      width:55,
       height:55,
       borderWidth:6,
       borderColor:'lightskyblue',
@@ -256,5 +269,34 @@ const styles = StyleSheet.create({
       fontSize: scale(14),
       color: 'black',
     },
+    modalBase: {
+      flex:1, 
+      justifyContent:'center',
+      backgroundColor:'#00000099', 
+    },
+    modalPanel: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 10,
+      margin:50,
+      backgroundColor:'white',
+      borderRadius: 30,
+      borderWidth:2,
+      borderColor:'black',
+    },
+    modalContent: {
+      padding:10,
+      fontSize: scale(40),
+    },
+    modalButton: {
+      height: 50,
+      width: 150,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'lightskyblue',
+      borderWidth: 2,
+      borderRadius: 30,
+      borderColor: 'white',
+      fontSize: scale(20),
+    },
 });
-
