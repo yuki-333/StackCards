@@ -11,13 +11,14 @@ import {
   createStackNavigator
 } from 'react-navigation';
 import { 
-  moderateScale
+  moderateScale,
+  scale,
  } from 'react-native-size-matters';
 
 import FruitsScreen from './Fruits';
-import VegeScreen from './Veges'
-import AisatuScreen from './Greetings'
-import ToolScreen from './Tools';
+import VegesScreen from './Veges'
+import SetumeiScreen from './Setsumei'
+import ToolsScreen from './Tools';
 import CarsScreen from './Cars'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -32,7 +33,7 @@ class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: 'カテゴリー内からカードの種類を選び、言語訓練などにご使用ください。'
+      message: '絵CARD'
     }
   }
 
@@ -43,46 +44,50 @@ class HomeScreen extends Component {
         <Text style={styles.textStyle1}>{this.state.message}</Text>
       </View>
         <View style={styles.contents}>
-        <ScrollView horizontal={false}> 
+     
         <View style={styles.allButtonContainer}>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={this.doAction0}>
+
+          <TouchableOpacity style={styles.button} onPress={this.doPageAction0}>
             <Text style={styles.buttonText} >果物</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.doAction1}>
+
+          <TouchableOpacity style={styles.button} onPress={this.doPageAction1}>
           <Text style={styles.buttonText} >野菜</Text>
           </TouchableOpacity>
-        </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity style={styles.button} onPress={this.doAction4}>
+
+          <TouchableOpacity style={styles.button} onPress={this.doPageAction4}>
           <Text style={styles.buttonText} >乗り物</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={this.doAction3}>
+
+          <TouchableOpacity style={styles.button} onPress={this.doPageAction3}>
           <Text style={styles.buttonText} >日用品</Text>
           </TouchableOpacity>
+
+          <TouchableOpacity style={styles.button} onPress={this.doPageAction2}>
+          <Text style={styles.buttonText} >CREDIT</Text>
+          </TouchableOpacity>
+
         </View>
-        </View>
-        </ScrollView>
         </View>
           <View style={styles.footer}>
-            <Text style={styles.textStyle2}  >© 2019 nara</Text>
+            <Text style={styles.textStyle2}  >© 2019 ST Curly</Text>
           </View>
       </View>
     );
   }
-  doAction0 = () => {
+  doPageAction0 = () => {
     this.props.navigation.navigate('Fruits')
   }
-  doAction1 = () => {
-    this.props.navigation.navigate('Vege')
+  doPageAction1 = () => {
+    this.props.navigation.navigate('Veges')
   }
-  doAction2 = () => {
-    this.props.navigation.navigate('Aisatu')
+  doPageAction2 = () => {
+    this.props.navigation.navigate('Setumei')
   }
-  doAction3 = () => {
-    this.props.navigation.navigate('Tool')
+  doPageAction3 = () => {
+    this.props.navigation.navigate('Tools')
   }
-  doAction4 = () => {
+  doPageAction4 = () => {
     this.props.navigation.navigate('Cars')
   }
 }
@@ -91,9 +96,9 @@ export default createStackNavigator(
   {
     Home: { screen: HomeScreen },
     Fruits: { screen: FruitsScreen },
-    Vege: { screen: VegeScreen },
-    Aisatu: { screen: AisatuScreen },
-    Tool: { screen: ToolScreen},
+    Veges: { screen: VegesScreen },
+    Setumei: { screen: SetumeiScreen },
+    Tools: { screen: ToolsScreen},
     Cars: {screen: CarsScreen},
   },
   {
@@ -120,7 +125,9 @@ const styles = StyleSheet.create({
   contents: {
     flex: 14,
     width: SCREEN_WIDTH - 20,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   allButtonContainer: {
     alignItems: 'center',
@@ -132,17 +139,18 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    margin: 10,
-    height: 100,
+    margin: scale(10),
+    height: scale(55),
+    width: scale(300),
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'deepskyblue',
+    backgroundColor: 'skyblue',
     borderColor: 'lightskyblue',
     borderWidth: 5,
     borderRadius: 30,
   },
   buttonText: {
-    fontSize: 33,
+    fontSize: scale(27),
     color: 'white',
   },
   footer: {
@@ -153,7 +161,7 @@ const styles = StyleSheet.create({
     width: SCREEN_WIDTH - 20,
   },
   textStyle1: {
-    fontSize: moderateScale(15),
+    fontSize: scale(30),
     color: 'white',
   },
   textStyle2: {

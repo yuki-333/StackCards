@@ -31,16 +31,8 @@ export default class FruitsScreen extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        reads0: '',
-        modal: false,
+        
       }
-    }
-
-    doModal = () => {
-      this.setState({modal: true})
-    }
-    doModalDelete = () => {
-      this.setState({modal:false,});
     }
   
 
@@ -61,51 +53,39 @@ export default class FruitsScreen extends Component {
         >
 
           <Card style={[styles.card, styles.card1]}>
-          <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={()=>{}}>
-            <View style={styles.modalBase}>
-              <View style={styles.modalPanel}>
-                <Text style={styles.modalContent}>りんご</Text>
-                  <TouchableOpacity style={styles.modalButton} onPress={this.doModalDelete} >
-                    <Text style={styles.cardText} >OK</Text>
-                  </TouchableOpacity>
-              </View>
-            </View>
-          </Modal>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.photoFlame}>
-                <Image source={require("../assets/images/Fruits/Ringo'.jpg")}/>
+                <Text style={styles.lastCard}>Auther:</Text>
+                <Text style={styles.lastCard}>ST Curly</Text>
               </View>
               <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} onPress={this.doModal} >
-                  <Text style={styles.cardText} >読み</Text>
-                </TouchableOpacity>
+                <Text>ありがとうございます。</Text>
               </View>
             </View>
           </Card>
-          
+         
           <Card style={[styles.card, styles.card1]}>
-          <Modal animationType="fade" transparent={true} visible={this.state.modal} onRequestClose={()=>{}}>
-            <View style={styles.modalBase}>
-              <View style={styles.modalPanel}>
-                <Text style={styles.modalContent}>りんご</Text>
-                  <TouchableOpacity style={styles.modalButton} onPress={this.doModalDelete} >
-                    <Text style={styles.cardText} >OK</Text>
-                  </TouchableOpacity>
-              </View>
-            </View>
-          </Modal>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.photoFlame}>
-                <Image source={require("../assets/images/Fruits/Ringo'.jpg")}/>
+              <Text style={styles.lastCard}>CREDITADDLES:</Text>
+              <Text>http://natullary-curly-project.com</Text>
               </View>
               <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} onPress={this.doModal} >
-                  <Text style={styles.cardText} >読み</Text>
-                </TouchableOpacity>
+                <Text>これからもよろしくお願いします</Text>
               </View>
             </View>
           </Card>
-          
+
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.photoFlame}>
+                <Text style={styles.lastCard}>絵CARD</Text>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <Text>言語臨床などにお使いください</Text>
+              </View>
+            </View>
+          </Card>
          
           
          
@@ -269,34 +249,8 @@ const styles = StyleSheet.create({
       fontSize: scale(14),
       color: 'black',
     },
-    modalBase: {
-      flex:1, 
-      justifyContent:'center',
-      backgroundColor:'#00000099', 
-    },
-    modalPanel: {
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: 10,
-      margin:50,
-      backgroundColor:'white',
-      borderRadius: 30,
-      borderWidth:2,
-      borderColor:'black',
-    },
-    modalContent: {
-      padding:10,
-      fontSize: scale(40),
-    },
-    modalButton: {
-      height: 50,
-      width: 150,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: 'lightskyblue',
-      borderWidth: 2,
-      borderRadius: 30,
-      borderColor: 'white',
-      fontSize: scale(20),
-    },
+    lastCard: {
+      fontSize: scale(35),
+      color: 'black',
+    }
 });
