@@ -23,10 +23,21 @@ import { scale, verticalScale, } from 'react-native-size-matters';
 
 export default class FruitsScreen extends Component {
   static navigationOptions = {
-      title: '野菜',
+      title: '果物',
       headerStyle: {backgroundColor: 'skyblue',},
       headerTintColor: 'white',
     };
+  
+    constructor(props) {
+      super(props);
+      this.state = {
+        reads0: '',
+      }
+    }
+
+ 
+
+
   render() {
     return (
       <View style={{flex:1}}>
@@ -47,10 +58,26 @@ export default class FruitsScreen extends Component {
           <Card style={[styles.card, styles.card1]}>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.read}>
-                <Text style={styles.readText}>だいこん</Text>
+                <Text style={styles.readText}>{this.state.reads0}</Text>
               </View>
               <View style={styles.photoFlame}>
-                <Image source={require("../assets/images/Veges/Daikon.jpg")}/>
+                <Image source={require("../assets/images/Fruits/Ringo'.jpg")}/>
+              </View>
+              <View style={[styles.cardButtonBase]}>
+                <TouchableOpacity style={styles.cardButton} onPress={this.doAction} >
+                  <Text style={styles.cardText} >読み</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </Card>
+         
+          <Card style={[styles.card, styles.card1]}>
+            <View style={[styles.cardBase, styles.cbbc0]}>
+              <View style={styles.read}>
+                <Text style={styles.readText}>かき</Text>
+              </View>
+              <View style={styles.photoFlame}>
+                <Image source={require("../assets/images/Fruits/Kaki.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
                 <TouchableOpacity style={styles.cardButton} >
@@ -63,26 +90,10 @@ export default class FruitsScreen extends Component {
           <Card style={[styles.card, styles.card1]}>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.read}>
-                <Text style={styles.readText}>ほうれんそう</Text>
+                <Text style={styles.readText}>みかん</Text>
               </View>
               <View style={styles.photoFlame}>
-                <Image source={require("../assets/images/Veges/Hourennsou.jpg")}/>
-              </View>
-              <View style={[styles.cardButtonBase]}>
-                <TouchableOpacity style={styles.cardButton} >
-                  <Text style={styles.cardText} >読み</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Card>
-         
-          <Card style={[styles.card, styles.card1]}>
-            <View style={[styles.cardBase, styles.cbbc0]}>
-              <View style={styles.read}>
-                <Text style={styles.readText}>きゃべつ</Text>
-              </View>
-              <View style={styles.photoFlame}>
-                <Image source={require("../assets/images/Veges/Kyabetu.jpg")}/>
+                <Image source={require("../assets/images/Fruits/Mikan.jpg")}/>
               </View>
               <View style={[styles.cardButtonBase]}>
                 <TouchableOpacity style={styles.cardButton} >
@@ -118,6 +129,10 @@ export default class FruitsScreen extends Component {
       </View>
     );
   }
+}
+
+doAction = () => {
+  this.setState({reads0: 'Apple'})
 }
 
 const styles = StyleSheet.create({
@@ -251,4 +266,3 @@ const styles = StyleSheet.create({
       color: 'black',
     },
 });
-
