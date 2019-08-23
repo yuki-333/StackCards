@@ -67,7 +67,7 @@ export default class FruitsScreen extends Component {
           <Card style={[styles.card, styles.card1]}>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.photoFlame}>
-              <Text style={styles.lastCard}>CREDITADDLES:</Text>
+              <Text style={styles.lastCard}>HOMEPAGE:</Text>
               <Text>http://natullary-curly-project.com</Text>
               </View>
               <View style={[styles.cardButtonBase]}>
@@ -79,7 +79,7 @@ export default class FruitsScreen extends Component {
           <Card style={[styles.card, styles.card1]}>
             <View style={[styles.cardBase, styles.cbbc0]}>
               <View style={styles.photoFlame}>
-                <Text style={styles.lastCard}>絵CARD</Text>
+                <Text style={styles.lastCard}>ありがとうございます</Text>
               </View>
               <View style={[styles.cardButtonBase]}>
                 <Text>言語臨床などにお使いください</Text>
